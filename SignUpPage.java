@@ -34,11 +34,11 @@ public class SignUpPage {
             public void actionPerformed(ActionEvent e) {
 
                 String s = nameBox.getText()+"-"+EncryptPassword.hashPassword(String.valueOf(passwordBox.getPassword()))+"-"+emailBox.getText();
-                new Writer(s);
+                new Writer(s,true);
 
                 SignUpPage.setVisible(false);
                 LogInPage logInPage = new LogInPage();
-                logInPage.setVisible(true);
+                logInPage.SetVisible(true);
             }
         });
 
