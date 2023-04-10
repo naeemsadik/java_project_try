@@ -1,3 +1,5 @@
+package Hashing;
+
 import java.security.*;
 import java.util.*;
 

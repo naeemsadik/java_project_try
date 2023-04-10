@@ -1,3 +1,5 @@
+package Hashing;
+
 import java.io.*;
 
 public class Writer {

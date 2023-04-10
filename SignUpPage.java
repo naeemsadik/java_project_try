@@ -1,12 +1,13 @@
+package Hashing;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class SignUpPage {
     public SignUpPage() {
-        JFrame SignUpPage = new JFrame();
+        JFrame SignUpPage = new JFrame("Beta | Sign Up");
         JLabel name =  new JLabel("Name: ");
         JTextField nameBox = new JTextField();
         JLabel password = new JLabel("Password: ");
@@ -14,7 +15,9 @@ public class SignUpPage {
         JLabel email =  new JLabel("Email: ");
         JTextField emailBox = new JTextField();
         JButton SignUpButton = new JButton("Sign Up");
-        SignUpButton.setBackground(new Color(66, 198, 246, 163));
+        SignUpButton.setBackground(new Color(66, 246, 165, 163));;
+        JButton logInButton = new JButton("Log in");
+        logInButton.setBackground(new Color(66, 198, 246, 163));
 
         SignUpPage.setSize(400,400);
         SignUpPage.setLocationRelativeTo(null);
@@ -26,6 +29,7 @@ public class SignUpPage {
         email.setBounds(50,200,80,30);
         emailBox.setBounds(130,200,200,30);
         SignUpButton.setBounds(165,280,100,30);
+        logInButton.setBounds(280,280,80,30);
 
         SignUpButton.addActionListener(new ActionListener() {
             @Override
@@ -34,6 +38,14 @@ public class SignUpPage {
                 String s = nameBox.getText()+"-"+EncryptPassword.hashPassword(String.valueOf(passwordBox.getPassword()))+"-"+emailBox.getText();
                 new Writer(s,true);
 
+                SignUpPage.setVisible(false);
+                LogInPage logInPage = new LogInPage();
+                logInPage.SetVisible(true);
+            }
+        });
+        logInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 SignUpPage.setVisible(false);
                 LogInPage logInPage = new LogInPage();
                 logInPage.SetVisible(true);
@@ -48,8 +60,12 @@ public class SignUpPage {
         SignUpPage.add(password);
         SignUpPage.add(name);
         SignUpPage.add(SignUpButton);
+        SignUpPage.add(logInButton);
         SignUpPage.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         SignUpPage.setVisible(true);
     }
 
+    public void setVisible(boolean b) {
+
+    }
 }
